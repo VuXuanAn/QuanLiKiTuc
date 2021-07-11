@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanLyKiTucXaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="hoaDonDienNuoc">
+    <Key>
+      <PropertyRef Name="idHoaDon" />
+      <PropertyRef Name="idPhong" />
+    </Key>
+    <Property Name="idHoaDon" Type="int" Nullable="false" />
+    <Property Name="idPhong" Type="int" Nullable="false" />
+    <Property Name="thang" Type="int" />
+    <Property Name="thanhToan" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="hoaDonPhong">
+    <Key>
+      <PropertyRef Name="IdHopDong" />
+      <PropertyRef Name="idPhong" />
+      <PropertyRef Name="maSinhVien" />
+    </Key>
+    <Property Name="IdHopDong" Type="int" Nullable="false" />
+    <Property Name="idPhong" Type="int" Nullable="false" />
+    <Property Name="maSinhVien" Type="int" Nullable="false" />
+    <Property Name="KiHan" Type="int" />
+    <Property Name="ngayBatDau" Type="datetime" />
+    <Property Name="thanhToan" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="quanLiHoSoSinhVien">
+    <Key>
+      <PropertyRef Name="maSinhVien" />
+    </Key>
+    <Property Name="maSinhVien" Type="int" Nullable="false" />
+    <Property Name="hinhAnh" Type="image" />
+    <Property Name="hoTen" Type="nvarchar" MaxLength="30" />
+    <Property Name="diaChi" Type="nvarchar" MaxLength="30" />
+    <Property Name="gioiTinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="khoa" Type="nvarchar" MaxLength="20" />
+    <Property Name="ngaySinh" Type="datetime" />
+    <Property Name="soDienThoai" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="quanLiPhong">
+    <Key>
+      <PropertyRef Name="idPhong" />
+    </Key>
+    <Property Name="idPhong" Type="int" Nullable="false" />
+    <Property Name="tinhTrang" Type="nvarchar" MaxLength="20" />
+    <Property Name="sucChua" Type="int" />
+    <Property Name="dangThue" Type="int" />
+  </EntityType>
+  <Association Name="fk_quanLiPhong">
+    <End Role="quanLiPhong" Type="Self.quanLiPhong" Multiplicity="1" />
+    <End Role="hoaDonPhong" Type="Self.hoaDonPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="quanLiPhong">
+        <PropertyRef Name="idPhong" />
+      </Principal>
+      <Dependent Role="hoaDonPhong">
+        <PropertyRef Name="idPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_quanLiPhong_DienNuoc">
+    <End Role="quanLiPhong" Type="Self.quanLiPhong" Multiplicity="1" />
+    <End Role="hoaDonDienNuoc" Type="Self.hoaDonDienNuoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="quanLiPhong">
+        <PropertyRef Name="idPhong" />
+      </Principal>
+      <Dependent Role="hoaDonDienNuoc">
+        <PropertyRef Name="idPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sinhVien">
+    <End Role="quanLiHoSoSinhVien" Type="Self.quanLiHoSoSinhVien" Multiplicity="1" />
+    <End Role="hoaDonPhong" Type="Self.hoaDonPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="quanLiHoSoSinhVien">
+        <PropertyRef Name="maSinhVien" />
+      </Principal>
+      <Dependent Role="hoaDonPhong">
+        <PropertyRef Name="maSinhVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="deleteBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHopDong_p" Type="int" Mode="In" />
+  </Function>
+  <Function Name="findContract" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHopDong_p" Type="int" Mode="In" />
+  </Function>
+  <Function Name="findPaidContract" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHopDong_p" Type="int" Mode="In" />
+  </Function>
+  <Function Name="findPaidContract1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="findUnaidContract" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHopDong_p" Type="int" Mode="In" />
+  </Function>
+  <Function Name="findUnaidContract1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHopDong_p" Type="int" Mode="In" />
+  </Function>
+  <Function Name="findUnaidContract2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getAllBill1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getAllRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getAllStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="pc_insertBill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHopDong_p" Type="int" Mode="In" />
+    <Parameter Name="idPhong_P" Type="int" Mode="In" />
+    <Parameter Name="maSinhVien_p" Type="int" Mode="In" />
+    <Parameter Name="KiHan_p" Type="int" Mode="In" />
+    <Parameter Name="ngayBatDau_p" Type="datetime" Mode="In" />
+    <Parameter Name="thanhToan_p" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="showListStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tenPhong" Type="int" Mode="In" />
+  </Function>
+  <Function Name="showListStudent1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tenPhong" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaSVP" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="sp_findStudent1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaSVP" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="sp_getAllBoyStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_getAllGirlStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_getAllGirlStudent1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_InsertSinhvien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maSinhVien_p" Type="int" Mode="In" />
+    <Parameter Name="hinhAnh_p" Type="image" Mode="In" />
+    <Parameter Name="hoTen_P" Type="nvarchar" Mode="In" />
+    <Parameter Name="diaChi_p" Type="nvarchar" Mode="In" />
+    <Parameter Name="gioiTinh_P" Type="nvarchar" Mode="In" />
+    <Parameter Name="khoa_P" Type="nvarchar" Mode="In" />
+    <Parameter Name="ngaySinh_P" Type="datetime" Mode="In" />
+    <Parameter Name="soDienThoai_P" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_updateStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maSinhVien_p" Type="int" Mode="In" />
+    <Parameter Name="hinhAnh_p" Type="image" Mode="In" />
+    <Parameter Name="hoTen_P" Type="nvarchar" Mode="In" />
+    <Parameter Name="diaChi_p" Type="nvarchar" Mode="In" />
+    <Parameter Name="gioiTinh_P" Type="nvarchar" Mode="In" />
+    <Parameter Name="khoa_P" Type="nvarchar" Mode="In" />
+    <Parameter Name="ngaySinh_P" Type="datetime" Mode="In" />
+    <Parameter Name="soDienThoai_P" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="quanLyKiTucXaModelStoreContainer">
+    <EntitySet Name="hoaDonDienNuoc" EntityType="Self.hoaDonDienNuoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hoaDonPhong" EntityType="Self.hoaDonPhong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="quanLiHoSoSinhVien" EntityType="Self.quanLiHoSoSinhVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="quanLiPhong" EntityType="Self.quanLiPhong" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_quanLiPhong" Association="Self.fk_quanLiPhong">
+      <End Role="quanLiPhong" EntitySet="quanLiPhong" />
+      <End Role="hoaDonPhong" EntitySet="hoaDonPhong" />
+    </AssociationSet>
+    <AssociationSet Name="fk_quanLiPhong_DienNuoc" Association="Self.fk_quanLiPhong_DienNuoc">
+      <End Role="quanLiPhong" EntitySet="quanLiPhong" />
+      <End Role="hoaDonDienNuoc" EntitySet="hoaDonDienNuoc" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sinhVien" Association="Self.fk_sinhVien">
+      <End Role="quanLiHoSoSinhVien" EntitySet="quanLiHoSoSinhVien" />
+      <End Role="hoaDonPhong" EntitySet="hoaDonPhong" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

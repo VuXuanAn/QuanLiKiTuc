@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanLyKiTucXaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="hoaDonPhong">
+    <Key>
+      <PropertyRef Name="IdHopDong" />
+      <PropertyRef Name="idPhong" />
+      <PropertyRef Name="maSinhVien" />
+    </Key>
+    <Property Name="IdHopDong" Type="Int32" Nullable="false" />
+    <Property Name="idPhong" Type="Int32" Nullable="false" />
+    <Property Name="maSinhVien" Type="Int32" Nullable="false" />
+    <Property Name="KiHan" Type="Int32" />
+    <Property Name="ngayBatDau" Type="DateTime" Precision="3" />
+    <Property Name="thanhToan" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="quanLiHoSoSinhVien">
+    <Key>
+      <PropertyRef Name="maSinhVien" />
+    </Key>
+    <Property Name="hinhAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="maSinhVien" Type="Int32" Nullable="false" />
+    <Property Name="hoTen" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="diaChi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="gioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="khoa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ngaySinh" Type="DateTime" Precision="3" />
+    <Property Name="soDienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="quanLiPhong">
+    <Key>
+      <PropertyRef Name="idPhong" />
+    </Key>
+    <Property Name="idPhong" Type="Int32" Nullable="false" />
+    <Property Name="tinhTrang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="sucChua" Type="Int32" />
+    <Property Name="dangThue" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="quanLyKiTucXaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="hoaDonPhongs" EntityType="Self.hoaDonPhong" />
+    <EntitySet Name="quanLiHoSoSinhViens" EntityType="Self.quanLiHoSoSinhVien" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="quanLiPhongs" EntityType="Self.quanLiPhong" />
+    <FunctionImport Name="getAllStudent" ReturnType="Collection(quanLyKiTucXaModel.getAllStudent_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(quanLyKiTucXaModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(quanLyKiTucXaModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="sp_InsertSinhvien">
+      <Parameter Name="hinhAnh_p" Mode="In" Type="String" />
+      <Parameter Name="maSinhVien_p" Mode="In" Type="Int32" />
+      <Parameter Name="hoTen_P" Mode="In" Type="String" />
+      <Parameter Name="diaChi_p" Mode="In" Type="String" />
+      <Parameter Name="gioiTinh_P" Mode="In" Type="String" />
+      <Parameter Name="khoa_P" Mode="In" Type="String" />
+      <Parameter Name="ngaySinh_P" Mode="In" Type="DateTime" />
+      <Parameter Name="soDienThoai_P" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="getAllStudent_Result">
+    <Property Type="String" Name="hinhAnh" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="String" Name="hoTen" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="diaChi" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="gioiTinh" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="khoa" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="ngaySinh" Nullable="true" Precision="23" />
+    <Property Type="String" Name="soDienThoai" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

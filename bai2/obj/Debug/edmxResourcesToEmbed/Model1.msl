@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="quanLyKiTucXaModelStoreContainer" CdmEntityContainer="quanLyKiTucXaEntities3">
+    <EntitySetMapping Name="hoaDonPhongs">
+      <EntityTypeMapping TypeName="quanLyKiTucXaModel.hoaDonPhong">
+        <MappingFragment StoreEntitySet="hoaDonPhong">
+          <ScalarProperty Name="IdHopDong" ColumnName="IdHopDong" />
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="KiHan" ColumnName="KiHan" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="thanhToan" ColumnName="thanhToan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quanLiHoSoSinhViens">
+      <EntityTypeMapping TypeName="quanLyKiTucXaModel.quanLiHoSoSinhVien">
+        <MappingFragment StoreEntitySet="quanLiHoSoSinhVien">
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="hinhAnh" ColumnName="hinhAnh" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="khoa" ColumnName="khoa" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="soDienThoai" ColumnName="soDienThoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quanLiPhongs">
+      <EntityTypeMapping TypeName="quanLyKiTucXaModel.quanLiPhong">
+        <MappingFragment StoreEntitySet="quanLiPhong">
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="tinhTrang" ColumnName="tinhTrang" />
+          <ScalarProperty Name="sucChua" ColumnName="sucChua" />
+          <ScalarProperty Name="dangThue" ColumnName="dangThue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getAllStudent" FunctionName="quanLyKiTucXaModel.Store.getAllStudent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.getAllStudent_Result">
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="khoa" ColumnName="khoa" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="soDienThoai" ColumnName="soDienThoai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_InsertSinhvien" FunctionName="quanLyKiTucXaModel.Store.sp_InsertSinhvien" />
+    <FunctionImportMapping FunctionImportName="sp_findStudent1" FunctionName="quanLyKiTucXaModel.Store.sp_findStudent1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.sp_findStudent1_Result">
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="khoa" ColumnName="khoa" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="soDienThoai" ColumnName="soDienThoai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_updateStudent" FunctionName="quanLyKiTucXaModel.Store.sp_updateStudent" />
+    <FunctionImportMapping FunctionImportName="sp_getAllBoyStudent" FunctionName="quanLyKiTucXaModel.Store.sp_getAllBoyStudent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.sp_getAllBoyStudent_Result">
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="khoa" ColumnName="khoa" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="soDienThoai" ColumnName="soDienThoai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getAllGirlStudent" FunctionName="quanLyKiTucXaModel.Store.sp_getAllGirlStudent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.sp_getAllGirlStudent_Result">
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="khoa" ColumnName="khoa" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="soDienThoai" ColumnName="soDienThoai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getAllGirlStudent1" FunctionName="quanLyKiTucXaModel.Store.sp_getAllGirlStudent1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.sp_getAllGirlStudent1_Result">
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="khoa" ColumnName="khoa" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="soDienThoai" ColumnName="soDienThoai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getAllBill1" FunctionName="quanLyKiTucXaModel.Store.getAllBill1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.getAllBill1_Result">
+          <ScalarProperty Name="IdHopDong" ColumnName="IdHopDong" />
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="KiHan" ColumnName="KiHan" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="thanhToan" ColumnName="thanhToan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="pc_insertBill" FunctionName="quanLyKiTucXaModel.Store.pc_insertBill" />
+    <FunctionImportMapping FunctionImportName="deleteBill" FunctionName="quanLyKiTucXaModel.Store.deleteBill" />
+    <FunctionImportMapping FunctionImportName="findContract" FunctionName="quanLyKiTucXaModel.Store.findContract">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.findContract_Result">
+          <ScalarProperty Name="IdHopDong" ColumnName="IdHopDong" />
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="KiHan" ColumnName="KiHan" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="thanhToan" ColumnName="thanhToan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="findPaidContract" FunctionName="quanLyKiTucXaModel.Store.findPaidContract">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.findPaidContract_Result">
+          <ScalarProperty Name="IdHopDong" ColumnName="IdHopDong" />
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="KiHan" ColumnName="KiHan" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="thanhToan" ColumnName="thanhToan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="findUnaidContract" FunctionName="quanLyKiTucXaModel.Store.findUnaidContract">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.findUnaidContract_Result">
+          <ScalarProperty Name="IdHopDong" ColumnName="IdHopDong" />
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="KiHan" ColumnName="KiHan" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="thanhToan" ColumnName="thanhToan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="findPaidContract1" FunctionName="quanLyKiTucXaModel.Store.findPaidContract1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.findPaidContract1_Result">
+          <ScalarProperty Name="IdHopDong" ColumnName="IdHopDong" />
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="KiHan" ColumnName="KiHan" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="thanhToan" ColumnName="thanhToan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="findUnaidContract1" FunctionName="quanLyKiTucXaModel.Store.findUnaidContract1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.findUnaidContract1_Result">
+          <ScalarProperty Name="IdHopDong" ColumnName="IdHopDong" />
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="KiHan" ColumnName="KiHan" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="thanhToan" ColumnName="thanhToan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="findUnaidContract2" FunctionName="quanLyKiTucXaModel.Store.findUnaidContract2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.findUnaidContract2_Result">
+          <ScalarProperty Name="IdHopDong" ColumnName="IdHopDong" />
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="KiHan" ColumnName="KiHan" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="thanhToan" ColumnName="thanhToan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="showListStudent" FunctionName="quanLyKiTucXaModel.Store.showListStudent" />
+    <FunctionImportMapping FunctionImportName="showListStudent1" FunctionName="quanLyKiTucXaModel.Store.showListStudent1" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteStudent" FunctionName="quanLyKiTucXaModel.Store.sp_DeleteStudent" />
+    <FunctionImportMapping FunctionImportName="getAllRoom" FunctionName="quanLyKiTucXaModel.Store.getAllRoom" />
+    <EntitySetMapping Name="hoaDonDienNuocs">
+      <EntityTypeMapping TypeName="quanLyKiTucXaModel.hoaDonDienNuoc">
+        <MappingFragment StoreEntitySet="hoaDonDienNuoc">
+          <ScalarProperty Name="thanhToan" ColumnName="thanhToan" />
+          <ScalarProperty Name="thang" ColumnName="thang" />
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="idHoaDon" ColumnName="idHoaDon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

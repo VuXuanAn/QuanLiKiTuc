@@ -1,0 +1,51 @@
+C:\Users\vuxua\source\repos\bai2\bai2\obj\Debug\quanLiKiTucXa.csprojAssemblyReference.cache
+C:\Users\vuxua\source\repos\bai2\bai2\obj\Debug\bai2.trangChu.resources
+C:\Users\vuxua\source\repos\bai2\bai2\obj\Debug\bai2.Properties.Resources.resources
+C:\Users\vuxua\source\repos\bai2\bai2\obj\Debug\quanLiKiTucXa.csproj.GenerateResource.cache
+C:\Users\vuxua\source\repos\bai2\bai2\obj\Debug\bai2.exe.licenses
+C:\Users\vuxua\source\repos\bai2\bai2\obj\Debug\quanLiKiTucXa.csproj.CoreCompileInputs.cache
+C:\Users\vuxua\source\repos\bai2\bai2\obj\Debug\bai2.exe
+C:\Users\vuxua\source\repos\bai2\bai2\obj\Debug\bai2.pdb
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\bai2.exe.config
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\bai2.exe
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\bai2.pdb
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\MediaFoundation.dll
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\Telerik.WinControls.dll
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\Telerik.WinControls.GridView.dll
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\Telerik.WinControls.RadWebCam.dll
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\Telerik.WinControls.UI.dll
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\Telerik.Windows.MediaFoundation.dll
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\TelerikCommon.dll
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\Telerik.WinControls.xml
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\Telerik.WinControls.GridView.xml
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\Telerik.WinControls.RadWebCam.xml
+C:\Users\vuxua\source\repos\bai2\bai2\bin\Debug\Telerik.WinControls.UI.xml
+C:\Users\vuxua\source\repos\bai2\bai2\obj\Debug\bai2.SOURCE.VIEW.QuanLiSinhVien.resources
+C:\Users\vuxua\source\repos\bai2\bai2\obj\Debug\quanLiKiTucXa.csproj.CopyComplete
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\bin\Debug\bai2.exe.config
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\bin\Debug\bai2.exe
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\bin\Debug\bai2.pdb
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\quanLiKiTucXa.csprojAssemblyReference.cache
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.QuanLiSinhVien.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.trangChu.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.Properties.Resources.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\quanLiKiTucXa.csproj.GenerateResource.cache
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.exe.licenses
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\quanLiKiTucXa.csproj.CoreCompileInputs.cache
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\quanLiKiTucXa.csproj.CopyComplete
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.exe
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.pdb
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.quanLiPhong.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.dangNhap.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.load.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.Form1.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.home_1.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.quanLiHopDong.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\bin\Debug\EntityFramework.dll
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\bin\Debug\EntityFramework.SqlServer.dll
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\bin\Debug\EntityFramework.xml
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\bin\Debug\EntityFramework.SqlServer.xml
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.Form2.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.statistical.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.StatisticalRoom.resources
+E:\tai lieu chuyen nganh\code C# winform\quanLiKiTucXa\source quanLiKiTuc C# Winform\bai2\obj\Debug\bai2.SOURCE.VIEW.MDIParent1.resources

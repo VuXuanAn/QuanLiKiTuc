@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="quanLyKiTucXaModelStoreContainer" CdmEntityContainer="quanLyKiTucXaEntities">
+    <EntitySetMapping Name="hoaDonPhongs">
+      <EntityTypeMapping TypeName="quanLyKiTucXaModel.hoaDonPhong">
+        <MappingFragment StoreEntitySet="hoaDonPhong">
+          <ScalarProperty Name="IdHopDong" ColumnName="IdHopDong" />
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="KiHan" ColumnName="KiHan" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="thanhToan" ColumnName="thanhToan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quanLiHoSoSinhViens">
+      <EntityTypeMapping TypeName="quanLyKiTucXaModel.quanLiHoSoSinhVien">
+        <MappingFragment StoreEntitySet="quanLiHoSoSinhVien">
+          <ScalarProperty Name="hinhAnh" ColumnName="hinhAnh" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="khoa" ColumnName="khoa" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="soDienThoai" ColumnName="soDienThoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="quanLyKiTucXaModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quanLiPhongs">
+      <EntityTypeMapping TypeName="quanLyKiTucXaModel.quanLiPhong">
+        <MappingFragment StoreEntitySet="quanLiPhong">
+          <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+          <ScalarProperty Name="tinhTrang" ColumnName="tinhTrang" />
+          <ScalarProperty Name="sucChua" ColumnName="sucChua" />
+          <ScalarProperty Name="dangThue" ColumnName="dangThue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getAllStudent" FunctionName="quanLyKiTucXaModel.Store.getAllStudent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.getAllStudent_Result">
+          <ScalarProperty Name="hinhAnh" ColumnName="hinhAnh" />
+          <ScalarProperty Name="maSinhVien" ColumnName="maSinhVien" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="diaChi" ColumnName="diaChi" />
+          <ScalarProperty Name="gioiTinh" ColumnName="gioiTinh" />
+          <ScalarProperty Name="khoa" ColumnName="khoa" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="soDienThoai" ColumnName="soDienThoai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="quanLyKiTucXaModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="quanLyKiTucXaModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="quanLyKiTucXaModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="quanLyKiTucXaModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="quanLyKiTucXaModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="quanLyKiTucXaModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="quanLyKiTucXaModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="quanLyKiTucXaModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_InsertSinhvien" FunctionName="quanLyKiTucXaModel.Store.sp_InsertSinhvien" />
+  </EntityContainerMapping>
+</Mapping>

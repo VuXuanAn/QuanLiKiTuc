@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanLyKiTucXaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="hoaDonPhong">
+    <Key>
+      <PropertyRef Name="IdHopDong" />
+      <PropertyRef Name="idPhong" />
+      <PropertyRef Name="maSinhVien" />
+    </Key>
+    <Property Name="IdHopDong" Type="Int32" Nullable="false" />
+    <Property Name="idPhong" Type="Int32" Nullable="false" />
+    <Property Name="maSinhVien" Type="Int32" Nullable="false" />
+    <Property Name="KiHan" Type="Int32" />
+    <Property Name="ngayBatDau" Type="DateTime" Precision="3" />
+    <Property Name="thanhToan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="quanLiPhong" Relationship="Self.fk_quanLiPhong" FromRole="hoaDonPhong" ToRole="quanLiPhong" />
+    <NavigationProperty Name="quanLiHoSoSinhVien" Relationship="Self.fk_sinhVien" FromRole="hoaDonPhong" ToRole="quanLiHoSoSinhVien" />
+  </EntityType>
+  <EntityType Name="quanLiHoSoSinhVien">
+    <Key>
+      <PropertyRef Name="maSinhVien" />
+    </Key>
+    <Property Name="maSinhVien" Type="Int32" Nullable="false" />
+    <Property Name="hinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="hoTen" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="diaChi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="gioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="khoa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ngaySinh" Type="DateTime" Precision="3" />
+    <Property Name="soDienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="hoaDonPhongs" Relationship="Self.fk_sinhVien" FromRole="quanLiHoSoSinhVien" ToRole="hoaDonPhong" />
+  </EntityType>
+  <EntityType Name="quanLiPhong">
+    <Key>
+      <PropertyRef Name="idPhong" />
+    </Key>
+    <Property Name="idPhong" Type="Int32" Nullable="false" />
+    <Property Name="tinhTrang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="sucChua" Type="Int32" />
+    <Property Name="dangThue" Type="Int32" />
+    <NavigationProperty Name="hoaDonPhongs" Relationship="Self.fk_quanLiPhong" FromRole="quanLiPhong" ToRole="hoaDonPhong" />
+    <NavigationProperty Name="hoaDonDienNuocs" Relationship="quanLyKiTucXaModel.fk_quanLiPhong_DienNuoc" FromRole="quanLiPhong" ToRole="hoaDonDienNuoc" />
+  </EntityType>
+  <Association Name="fk_quanLiPhong">
+    <End Role="quanLiPhong" Type="Self.quanLiPhong" Multiplicity="1" />
+    <End Role="hoaDonPhong" Type="Self.hoaDonPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="quanLiPhong">
+        <PropertyRef Name="idPhong" />
+      </Principal>
+      <Dependent Role="hoaDonPhong">
+        <PropertyRef Name="idPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sinhVien">
+    <End Role="quanLiHoSoSinhVien" Type="Self.quanLiHoSoSinhVien" Multiplicity="1" />
+    <End Role="hoaDonPhong" Type="Self.hoaDonPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="quanLiHoSoSinhVien">
+        <PropertyRef Name="maSinhVien" />
+      </Principal>
+      <Dependent Role="hoaDonPhong">
+        <PropertyRef Name="maSinhVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quanLyKiTucXaEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="hoaDonPhongs" EntityType="Self.hoaDonPhong" />
+    <EntitySet Name="quanLiHoSoSinhViens" EntityType="Self.quanLiHoSoSinhVien" />
+    <EntitySet Name="quanLiPhongs" EntityType="Self.quanLiPhong" />
+    <AssociationSet Name="fk_quanLiPhong" Association="Self.fk_quanLiPhong">
+      <End Role="quanLiPhong" EntitySet="quanLiPhongs" />
+      <End Role="hoaDonPhong" EntitySet="hoaDonPhongs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sinhVien" Association="Self.fk_sinhVien">
+      <End Role="quanLiHoSoSinhVien" EntitySet="quanLiHoSoSinhViens" />
+      <End Role="hoaDonPhong" EntitySet="hoaDonPhongs" />
+    </AssociationSet>
+    <FunctionImport Name="getAllStudent" ReturnType="Collection(quanLyKiTucXaModel.getAllStudent_Result)" />
+    <FunctionImport Name="sp_InsertSinhvien">
+      <Parameter Name="maSinhVien_p" Mode="In" Type="Int32" />
+      <Parameter Name="hinhAnh_p" Mode="In" Type="Binary" />
+      <Parameter Name="hoTen_P" Mode="In" Type="String" />
+      <Parameter Name="diaChi_p" Mode="In" Type="String" />
+      <Parameter Name="gioiTinh_P" Mode="In" Type="String" />
+      <Parameter Name="khoa_P" Mode="In" Type="String" />
+      <Parameter Name="ngaySinh_P" Mode="In" Type="DateTime" />
+      <Parameter Name="soDienThoai_P" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_findStudent" ReturnType="Collection(quanLyKiTucXaModel.sp_findStudent_Result)">
+      <Parameter Name="MaSVP" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_findStudent1" ReturnType="Collection(quanLyKiTucXaModel.sp_findStudent1_Result)">
+      <Parameter Name="MaSVP" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_updateStudent">
+      <Parameter Name="maSinhVien_p" Mode="In" Type="Int32" />
+      <Parameter Name="hinhAnh_p" Mode="In" Type="Binary" />
+      <Parameter Name="hoTen_P" Mode="In" Type="String" />
+      <Parameter Name="diaChi_p" Mode="In" Type="String" />
+      <Parameter Name="gioiTinh_P" Mode="In" Type="String" />
+      <Parameter Name="khoa_P" Mode="In" Type="String" />
+      <Parameter Name="ngaySinh_P" Mode="In" Type="DateTime" />
+      <Parameter Name="soDienThoai_P" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getAllBoyStudent" ReturnType="Collection(quanLyKiTucXaModel.sp_getAllBoyStudent_Result)" />
+    <FunctionImport Name="sp_getAllGirlStudent" ReturnType="Collection(quanLyKiTucXaModel.sp_getAllGirlStudent_Result)" />
+    <FunctionImport Name="sp_getAllGirlStudent1" ReturnType="Collection(quanLyKiTucXaModel.sp_getAllGirlStudent1_Result)" />
+    <FunctionImport Name="getAllBill1" ReturnType="Collection(quanLyKiTucXaModel.getAllBill1_Result)" />
+    <FunctionImport Name="pc_insertBill">
+      <Parameter Name="IdHopDong_p" Mode="In" Type="Int32" />
+      <Parameter Name="idPhong_P" Mode="In" Type="Int32" />
+      <Parameter Name="maSinhVien_p" Mode="In" Type="Int32" />
+      <Parameter Name="KiHan_p" Mode="In" Type="Int32" />
+      <Parameter Name="ngayBatDau_p" Mode="In" Type="DateTime" />
+      <Parameter Name="thanhToan_p" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="deleteBill">
+      <Parameter Name="IdHopDong_p" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="findContract" ReturnType="Collection(quanLyKiTucXaModel.findContract_Result)">
+      <Parameter Name="IdHopDong_p" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="findPaidContract" ReturnType="Collection(quanLyKiTucXaModel.findPaidContract_Result)">
+      <Parameter Name="IdHopDong_p" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="findUnaidContract" ReturnType="Collection(quanLyKiTucXaModel.findUnaidContract_Result)">
+      <Parameter Name="IdHopDong_p" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="findPaidContract1" ReturnType="Collection(quanLyKiTucXaModel.findPaidContract1_Result)" />
+    <FunctionImport Name="findUnaidContract1" ReturnType="Collection(quanLyKiTucXaModel.findUnaidContract1_Result)">
+      <Parameter Name="IdHopDong_p" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="findUnaidContract2" ReturnType="Collection(quanLyKiTucXaModel.findUnaidContract2_Result)" />
+    <FunctionImport Name="showListStudent" ReturnType="Collection(String)">
+      <Parameter Name="tenPhong" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="showListStudent1" ReturnType="Collection(String)">
+      <Parameter Name="tenPhong" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DeleteStudent">
+      <Parameter Name="MaSVP" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getAllRoom" ReturnType="Collection(Int32)" />
+    <EntitySet Name="hoaDonDienNuocs" EntityType="quanLyKiTucXaModel.hoaDonDienNuoc" />
+    <AssociationSet Name="fk_quanLiPhong_DienNuoc" Association="quanLyKiTucXaModel.fk_quanLiPhong_DienNuoc">
+      <End Role="quanLiPhong" EntitySet="quanLiPhongs" />
+      <End Role="hoaDonDienNuoc" EntitySet="hoaDonDienNuocs" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="getAllStudent_Result">
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="String" Name="hoTen" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="diaChi" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="gioiTinh" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="khoa" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="ngaySinh" Nullable="true" Precision="23" />
+    <Property Type="String" Name="soDienThoai" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="sp_findStudent_Result">
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="Binary" Name="hinhAnh" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="hoTen" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="diaChi" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="gioiTinh" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="khoa" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="ngaySinh" Nullable="true" Precision="23" />
+    <Property Type="String" Name="soDienThoai" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="sp_findStudent1_Result">
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="String" Name="hoTen" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="diaChi" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="gioiTinh" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="khoa" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="ngaySinh" Nullable="true" Precision="23" />
+    <Property Type="String" Name="soDienThoai" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="sp_getAllBoyStudent_Result">
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="String" Name="hoTen" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="diaChi" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="gioiTinh" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="khoa" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="ngaySinh" Nullable="true" Precision="23" />
+    <Property Type="String" Name="soDienThoai" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="sp_getAllGirlStudent_Result">
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="String" Name="hoTen" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="diaChi" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="gioiTinh" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="khoa" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="ngaySinh" Nullable="true" Precision="23" />
+    <Property Type="String" Name="soDienThoai" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="sp_getAllGirlStudent1_Result">
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="String" Name="hoTen" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="diaChi" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="gioiTinh" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="khoa" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="ngaySinh" Nullable="true" Precision="23" />
+    <Property Type="String" Name="soDienThoai" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="getAllBill1_Result">
+    <Property Type="Int32" Name="IdHopDong" Nullable="false" />
+    <Property Type="Int32" Name="idPhong" Nullable="false" />
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="Int32" Name="KiHan" Nullable="true" />
+    <Property Type="DateTime" Name="ngayBatDau" Nullable="true" Precision="23" />
+    <Property Type="String" Name="thanhToan" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="findContract_Result">
+    <Property Type="Int32" Name="IdHopDong" Nullable="false" />
+    <Property Type="Int32" Name="idPhong" Nullable="false" />
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="Int32" Name="KiHan" Nullable="true" />
+    <Property Type="DateTime" Name="ngayBatDau" Nullable="true" Precision="23" />
+    <Property Type="String" Name="thanhToan" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="findPaidContract_Result">
+    <Property Type="Int32" Name="IdHopDong" Nullable="false" />
+    <Property Type="Int32" Name="idPhong" Nullable="false" />
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="Int32" Name="KiHan" Nullable="true" />
+    <Property Type="DateTime" Name="ngayBatDau" Nullable="true" Precision="23" />
+    <Property Type="String" Name="thanhToan" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="findUnaidContract_Result">
+    <Property Type="Int32" Name="IdHopDong" Nullable="false" />
+    <Property Type="Int32" Name="idPhong" Nullable="false" />
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="Int32" Name="KiHan" Nullable="true" />
+    <Property Type="DateTime" Name="ngayBatDau" Nullable="true" Precision="23" />
+    <Property Type="String" Name="thanhToan" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="findPaidContract1_Result">
+    <Property Type="Int32" Name="IdHopDong" Nullable="false" />
+    <Property Type="Int32" Name="idPhong" Nullable="false" />
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="Int32" Name="KiHan" Nullable="true" />
+    <Property Type="DateTime" Name="ngayBatDau" Nullable="true" Precision="23" />
+    <Property Type="String" Name="thanhToan" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="findUnaidContract1_Result">
+    <Property Type="Int32" Name="IdHopDong" Nullable="false" />
+    <Property Type="Int32" Name="idPhong" Nullable="false" />
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="Int32" Name="KiHan" Nullable="true" />
+    <Property Type="DateTime" Name="ngayBatDau" Nullable="true" Precision="23" />
+    <Property Type="String" Name="thanhToan" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="findUnaidContract2_Result">
+    <Property Type="Int32" Name="IdHopDong" Nullable="false" />
+    <Property Type="Int32" Name="idPhong" Nullable="false" />
+    <Property Type="Int32" Name="maSinhVien" Nullable="false" />
+    <Property Type="Int32" Name="KiHan" Nullable="true" />
+    <Property Type="DateTime" Name="ngayBatDau" Nullable="true" Precision="23" />
+    <Property Type="String" Name="thanhToan" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <EntityType Name="hoaDonDienNuoc">
+    <Key>
+      <PropertyRef Name="idHoaDon" />
+      <PropertyRef Name="idPhong" />
+    </Key>
+    <Property Name="idHoaDon" Type="Int32" Nullable="false" />
+    <Property Name="idPhong" Type="Int32" Nullable="false" />
+    <Property Name="thang" Type="Int32" />
+    <Property Name="thanhToan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="quanLiPhong" Relationship="quanLyKiTucXaModel.fk_quanLiPhong_DienNuoc" FromRole="hoaDonDienNuoc" ToRole="quanLiPhong" />
+  </EntityType>
+  <Association Name="fk_quanLiPhong_DienNuoc">
+    <End Type="quanLyKiTucXaModel.quanLiPhong" Role="quanLiPhong" Multiplicity="1" />
+    <End Type="quanLyKiTucXaModel.hoaDonDienNuoc" Role="hoaDonDienNuoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="quanLiPhong">
+        <PropertyRef Name="idPhong" />
+      </Principal>
+      <Dependent Role="hoaDonDienNuoc">
+        <PropertyRef Name="idPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
